@@ -5,15 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
-import java.util.ArrayList;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -87,6 +79,41 @@ public class DBHelper extends SQLiteOpenHelper {
 
             cursorCourses.close();
             return studentArrayList;
+        }
+        public boolean update(StudentModel cur,StudentModel pre)
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursorCourses = db.rawQuery("SELECT * FROM " + STUDENT_TABLE+ " WHERE StudentName= '"+pre.getName() +"' AND "+ STUDENT_ROLL +"="+ pre.getRollNmber()+ " AND "+STUDENT_ENROLL+"="+pre.isEnroll(), null);
+            if (cursorCourses.moveToFirst()) {
+
+
+                String StudentId =cursorCourses.getString(0);
+
+                String strSQL = "UPDATE "+ STUDENT_TABLE +"   SET  "+STUDENT_NAME+" = '"+cur.getName() +"' , "+ STUDENT_ENROLL +" = "+cur.isEnroll() +" , " +STUDENT_ROLL+" = "+ cur.getRollNmber() +" WHERE "+STUDENT_ID +" = "+ StudentId;
+                db.execSQL(strSQL);
+                return true;
+
+            }
+            return false;
+        }
+
+        public boolean DeleteStudent(StudentModel s)
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursorCourses = db.rawQuery("SELECT * FROM " + STUDENT_TABLE+ " WHERE StudentName= '"+s.getName() +"' AND "+ STUDENT_ROLL +"="+ s.getRollNmber()+ " AND "+STUDENT_ENROLL+"="+s.isEnroll(), null);
+            if (cursorCourses.moveToFirst()) {
+
+
+               String StudentId =cursorCourses.getString(0);
+
+                db.delete(STUDENT_TABLE, STUDENT_ID + "=" + StudentId, null);
+                return true;
+
+            }
+
+
+            return false;
         }
 
 

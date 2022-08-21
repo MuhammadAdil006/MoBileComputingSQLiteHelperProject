@@ -43,12 +43,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:minHeight="48dp"
         android:showText="true"
         android:text="isenrolled"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextRollNumber" />
 
@@ -56,7 +58,8 @@
         android:id="@+id/buttonViewAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/buttonviewall"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchStudent" />
@@ -74,18 +77,49 @@
 
     <ListView
         android:id="@+id/listViewStudent"
-        android:layout_width="392dp"
-        android:layout_height="381dp"
+        android:layout_width="342dp"
+        android:layout_height="302dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="432dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonViewAll"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="266dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="39dp"
+        android:text="Click on Item List to update or delete"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:translationY="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="98dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="29dp"
+        android:text="update"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchStudent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

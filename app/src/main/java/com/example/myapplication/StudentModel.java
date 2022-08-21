@@ -5,6 +5,10 @@ public class StudentModel {
     private int rollNmber;
     private boolean isEnroll;
 
+    public StudentModel() {
+
+    }
+
     @Override
     public String toString() {
         return "StudentModel{" +
